@@ -43,7 +43,7 @@ function sendRequest() {
 	catch(e){}
 	finally{
 	jQuery('#contactform').slideUp("slow").hide();
-	jQuery('#contactWrapper').append('<div class="success"><h4>Email Successfully Sent!</h4><br><p>Thank you for using our contact form <strong>'+decodeURIComponent(name)+'</strong>! Your email was successfully sent and we&#39;ll be in touch with you soon.</p></div>');
+	jQuery('#contactWrapper').append('<div class="success"><h4>Sua mensangem foi enviada!</h4><br><p>Olá <strong>'+decodeURIComponent(name)+'</strong>! Agradecemos pela mensagem. Assim que possível entraremos em contato.</p></div>');
 	}
 }
 function sendRequest_booking() {
@@ -198,7 +198,7 @@ function check_values() {
 	 if($j('#contactform #name').val()=='') {
 	 	var hasClass=$j('#contactform #name').parent().find(".error").hasClass("error");
 	 	if(!hasClass)
-	 	    $j('#contactform #name').parent().append('<label for="contactname" generated="true" class="error">Please enter your name</label>');
+	 	    $j('#contactform #name').parent().append('<label for="contactname" generated="true" class="error">Informe seu nome</label>');
 			$j('#contactform #name').focus();
 			//return false;
 			errors++;
@@ -210,7 +210,7 @@ function check_values() {
 		if(validate_email($j('#contactform #email').val())==false ) {
 		var hasClass=$j('#contactform #email').parent().find(".error").hasClass("error");
 	 	if(!hasClass)
-	 	    $j('#contactform #email').parent().append('<label for="contactname" generated="true" class="error">Please enter a valid email address</label>');	
+	 	    $j('#contactform #email').parent().append('<label for="contactname" generated="true" class="error">Informe um e-mail válido</label>');
 			$j('#contactform #email').focus();
 			//return false;
 			errors++;
@@ -223,7 +223,7 @@ function check_values() {
 		if($j('#contactform #subject').val()==''){
 		var hasClass=$j('#contactform #subject').parent().find(".error").hasClass("error");
 	 	if(!hasClass)
-	 	    $j('#contactform #subject').parent().append('<label for="contactname" generated="true" class="error">You need to enter a subject!</label>');	
+	 	    $j('#contactform #subject').parent().append('<label for="contactname" generated="true" class="error">Informe um assunto</label>');
 			$j('#contactform #subject').focus();
 			//return false;
 			errors++;
@@ -235,7 +235,7 @@ function check_values() {
 		if($j('#contactform #body').val()==''){
 		var hasClass=$j('#contactform #body').parent().find(".error").hasClass("error");
 	 	if(!hasClass)
-	 	    $j('#contactform #body').parent().append('<label for="contactname" generated="true" class="error">You need to enter a message!</label>');	
+	 	    $j('#contactform #body').parent().append('<label for="contactname" generated="true" class="error">Escreva sua mensagem</label>');
 			$j('#contactform #body').focus();
 			//return false;
 			errors++;
@@ -247,7 +247,7 @@ function check_values() {
 
 	if(errors==0) {
 			document.getElementById("submit").disabled=true;
-			document.getElementById("submit").value='Please Wait..';
+			document.getElementById("submit").value='Aguarde..';
 			sendRequest();
 	}
 }
