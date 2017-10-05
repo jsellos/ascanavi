@@ -51,7 +51,7 @@ class Associado(models.Model):
 
 class Memoria(models.Model):
     data      = models.DateField(auto_now=True)
-    descricao = models.TextField(max_length=500, verbose_name='Descrição')
+    descricao = models.TextField(max_length=500, verbose_name='descrição')
     imagem    = ResizedImageField(size=[780,600], upload_to='memorias')
 
     def __str__(self):
@@ -59,3 +59,14 @@ class Memoria(models.Model):
 
     class Meta:
         verbose_name = 'memória'
+
+class QuemSomos(models.Model):
+    subtitulo      = models.TextField(verbose_name='subtítulo', max_length=200)
+    texto_destaque = models.TextField(max_length=500)
+    imagem    = ResizedImageField(size=[1920,790], upload_to='quem_somos')
+
+    def __str__(self):
+        return self.subtitulo[0:20]
+
+    class Meta:
+        verbose_name_plural = 'quem somos'
