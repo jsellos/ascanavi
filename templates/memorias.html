@@ -48,6 +48,26 @@
                         <div class="section_wrapper mcb-section-inner">
                             <div class="wrap mcb-wrap one  valign-top clearfix">
                                 <div class="mcb-wrap-inner">
+                                    {% if itens %}
+                                        {% for i in itens %}
+                                            <div class="column mcb-column one-second column_image ">
+                                                <div class="image_frame image_item scale-with-grid aligncenter no_border">
+                                                    <div class="image_wrapper">
+                                                        <a href="{% static 'core/images/home_home_productdetails4.jpg' %}" rel="prettyphoto">
+                                                            <div class="mask"></div><img class="scale-with-grid" src="{% static 'core/images/home_home_productdetails4.jpg' %}" alt="" width="780" height="600" />
+                                                        </a>
+                                                        <div class="image_links ">
+                                                            <a href="{% static 'core/images/home_home_productdetails4.jpg' %}" class="zoom" rel="prettyphoto" details="teste"><i class="icon-search"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            <p class="wp-caption-text">
+                                                {{ i.descricao }}
+                                            </p>
+                                            </div>
+                                        {% endfor %}
+                                    {% endif %}
+                                    <!-- inicio do bloco de foto
                                     <div class="column mcb-column one-second column_image ">
                                         <div class="image_frame image_item scale-with-grid aligncenter no_border">
                                             <div class="image_wrapper">
@@ -60,66 +80,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="column mcb-column one-second column_image ">
-                                        <div class="image_frame image_item scale-with-grid aligncenter no_border">
-                                            <div class="image_wrapper">
-                                                <a href="{% static 'core/images/home_home_productdetails4.jpg' %}" rel="prettyphoto">
-                                                    <div class="mask"></div><img class="scale-with-grid" src="{% static 'core/images/home_home_productdetails4.jpg' %}" alt="home_home_productdetails4" width="780" height="600" />
-                                                </a>
-                                                <div class="image_links ">
-                                                    <a href="{% static 'core/images/home_home_productdetails4.jpg' %}" class="zoom" rel="prettyphoto"><i class="icon-search"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="column mcb-column one-second column_image ">
-                                        <div class="image_frame image_item scale-with-grid aligncenter no_border">
-                                            <div class="image_wrapper">
-                                                <a href="{% static 'core/images/home_home_productdetails4.jpg' %}" rel="prettyphoto">
-                                                    <div class="mask"></div><img class="scale-with-grid" src="{% static 'core/images/home_home_productdetails4.jpg' %}" alt="home_home_productdetails4" width="780" height="600" />
-                                                </a>
-                                                <div class="image_links ">
-                                                    <a href="{% static 'core/images/home_home_productdetails4.jpg' %}" class="zoom" rel="prettyphoto"><i class="icon-search"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="column mcb-column one-second column_image ">
-                                        <div class="image_frame image_item scale-with-grid aligncenter no_border">
-                                            <div class="image_wrapper">
-                                                <a href="{% static 'core/images/home_home_productdetails4.jpg' %}" rel="prettyphoto">
-                                                    <div class="mask"></div><img class="scale-with-grid" src="{% static 'core/images/home_home_productdetails4.jpg' %}" alt="home_home_productdetails4" width="780" height="600" />
-                                                </a>
-                                                <div class="image_links ">
-                                                    <a href="{% static 'core/images/home_home_productdetails4.jpg' %}" class="zoom" rel="prettyphoto"><i class="icon-search"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="column mcb-column one-second column_image ">
-                                        <div class="image_frame image_item scale-with-grid aligncenter no_border">
-                                            <div class="image_wrapper">
-                                                <a href="{% static 'core/images/home_home_productdetails4.jpg' %}" rel="prettyphoto">
-                                                    <div class="mask"></div><img class="scale-with-grid" src="{% static 'core/images/home_home_productdetails4.jpg' %}" alt="home_home_productdetails4" width="780" height="600" />
-                                                </a>
-                                                <div class="image_links ">
-                                                    <a href="{% static 'core/images/home_home_productdetails4.jpg' %}" class="zoom" rel="prettyphoto"><i class="icon-search"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="column mcb-column one-second column_image ">
-                                        <div class="image_frame image_item scale-with-grid aligncenter no_border">
-                                            <div class="image_wrapper">
-                                                <a href="{% static 'core/images/home_home_productdetails4.jpg' %}" rel="prettyphoto">
-                                                    <div class="mask"></div><img class="scale-with-grid" src="{% static 'core/images/home_home_productdetails4.jpg' %}" alt="home_home_productdetails4" width="780" height="600" />
-                                                </a>
-                                                <div class="image_links ">
-                                                    <a href="{% static 'core/images/home_home_productdetails4.jpg' %}" class="zoom" rel="prettyphoto"><i class="icon-search"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    fim do bloco de foto...-->
                                 </div>
                             </div>
                         </div>

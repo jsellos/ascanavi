@@ -1,10 +1,177 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% load static %}
 
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7 "> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie10 lt-ie9"> <![endif]-->
+<!--[if IE 9]><html class="no-js lt-ie10"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>ASCANAVI - Associação dos Catadores de Materiais Recicláveis Natureza Viva</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="{% static 'core/images/favicon.ico' %}">
+
+    <!-- FONTS -->
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:100,300,400,400italic,700'>
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Patua+One:100,300,400,400italic,700'>
+    <link rel='stylesheet' id='Nunito+Sans-css' href='http://fonts.googleapis.com/css?family=Nunito+Sans:100,300italic,400,400italic,700,700italic,800'>
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Lato:100,300,400'>
+
+    <!-- CSS -->
+    <link rel='stylesheet' href="{% static 'core/css/global.css' %}">
+    <link rel='stylesheet' href="{% static 'core/css/structure.css' %}">
+    <link rel='stylesheet' href="{% static 'core/css/home.css' %}">
+    <link rel='stylesheet' href="{% static 'core/css/custom.css' %}">
+
+</head>
+
+<body class="color-custom style-simple layout-full-width nice-scroll-on button-flat if-zoom if-border-hide hide-love header-classic minimalist-header-no sticky-header sticky-tb-color ab-hide subheader-both-center menu-link-color menuo-no-borders menuo-right mobile-tb-left mobile-side-slide mobile-mini-mr-lc mobile-header-mini mobile-sticky">
+    <div id="Wrapper">
+        {% include 'header.html' %}
+        <div id="Content">
+            <div class="content_wrapper clearfix">
+                <div class="sections_group">
+
+                    <div class="section section-filters">
+                        <div class="section_wrapper clearfix">
+                            <div id="Filters" class="column one  isotope-filters only only-categories">
+                                <ul class="filters_buttons">
+                                    <li class="label">
+                                        Filter by
+                                    </li>
+                                    <li class="categories">
+                                        <a class="open" href="#"><i class="icon-docs"></i>Categorias<i class="icon-down-dir"></i></a>
+                                    </li>
+                                    <li class="reset">
+                                        <a class="close" data-rel="*" href="noticias.html"><i class="icon-cancel"></i> Todas</a>
+                                    </li>
+                                </ul>
+                                <div class="filters_wrapper" data-cat="">
+                                    <ul class="categories">
+                                        <li class="reset-inner current-cat"><a class="close" data-rel="*" href="">Todas</a></li>
+                                        {% if cat %}
+                                            {% for i in cat %}
+                                                <li><a data-rel=".{{ i.nome|lower|cut:" "|cut:"." }}" href="">{{ i.nome }}</a></li>
+                                            {% endfor %}
+                                        {% endif %}
+                                        <li class="close"><a href="#"><i class="icon-cancel"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section">
+                        <div class="section_wrapper clearfix">
+                            <div class="column one column_portfolio">
+                                <div class="portfolio_wrapper isotope_wrapper">
+                                    <ul class="portfolio_group lm_wrapper isotope masonry col-3">
+                                        {% if itens %}
+                                            {% for i in itens %}
+                                                <li class="portfolio-item isotope-item {{ i.idCat|lower|cut:" "|cut:"." }} has-thumbnail">
+                                                    <div class="portfolio-item-fw-bg">
+                                                        <div class="portfolio-item-fill"></div>
+                                                        <div class="list_style_header">
+                                                            <h3 class="entry-title" itemprop="headline"><a class="link" href="/noticias/{{ i.id }}">{{ i.titulo }}</a></h3>
+                                                            <div class="links_wrapper">
+                                                                <a href="#" class="button button_js portfolio_prev_js"><span class="button_icon"><i class="icon-up-open"></i></span></a><a href="#" class="button button_js portfolio_next_js"><span class="button_icon"><i class="icon-down-open"></i></span></a><a href="/noticias/{{ i.id }}" class="button button_left button_theme button_js"><span class="button_icon"><i class="icon-link"></i></span><span class="button_label">Leia mais</span></a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="image_frame scale-with-grid">
+                                                            <div class="image_wrapper">
+                                                                <a href="/noticias/{{ i.id }}">
+                                                                    <div class="mask"></div><img width="960" height="750" src="{% static 'core/images/home_home_product1-960x750.jpg' %}" class="scale-with-grid wp-post-image" alt="">
+                                                                </a>
+                                                                <div class="image_links double">
+                                                                    <a href="{% static 'core/images/home_home_product1-1024x931.jpg' %}" class="zoom" rel="prettyphoto"><i class="icon-search"></i></a><a href="/noticias/{{ i.id }}" class="link"><i class="icon-link"></i></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="desc">
+                                                            <div class="title_wrapper">
+                                                                <h5 class="entry-title" itemprop="headline"><a class="link" href="/noticias/{{ i.id }}">{{ i.titulo }}</a></h5>
+                                                                <div class="button-love">
+                                                                    <a href="#" class="mfn-love " data-id="45"><span class="icons-wrapper"><i class="icon-heart-empty-fa"></i><i class="icon-heart-fa"></i></span><span class="label">0</span></a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="details-wrapper">
+                                                                <dl>
+                                                                    <dt>Data</dt>
+                                                                    <dd>{{ i.dthora }}</dd>
+                                                                </dl>
+                                                            </div>
+                                                            <div class="desc-wrapper">
+                                                                {{ i.texto|make_list|slice:'0:200'|join:'' }}...
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% include 'footer.html' %}
+    </div>
+    <div id="Side_slide" class="right dark">
+        <div class="close-wrapper">
+            <a href="#" class="close"><i class="icon-cancel-fine"></i></a>
+        </div>
+        <div class="menu_wrapper"></div>
+    </div>
+    <div id="body_overlay"></div>
+
+
+    <!-- JS -->
+    <script src="{% static 'core/js/jquery-2.1.4.min.js' %}"></script>
+
+    <script src="{% static 'core/js/mfn.menu.js' %}"></script>
+    <script src="{% static 'core/js/jquery.plugins.js' %}"></script>
+    <script src="{% static 'core/js/jquery.jplayer.min.js' %}"></script>
+    <script src="{% static 'core/js/animations/animations.js' %}"></script>
+    <script src="{% static 'core/js/scripts.js' %}"></script>
+
+    <script id="mfn-dnmc-retina-js">
+        jQuery(window).load(function() {
+            var retina = window.devicePixelRatio > 1 ? true : false;
+            if (retina) {
+                var retinaEl = jQuery("#logo img.logo-main");
+                var retinaLogoW = retinaEl.width();
+                var retinaLogoH = retinaEl.height();
+                retinaEl.attr("src", "{% static 'core/images/home-retina.png' %}").width(retinaLogoW).height(retinaLogoH);
+                var stickyEl = jQuery("#logo img.logo-sticky");
+                var stickyLogoW = stickyEl.width();
+                var stickyLogoH = stickyEl.height();
+                stickyEl.attr("src", "{% static 'core/images/home-retina.png' %}").width(stickyLogoW).height(stickyLogoH);
+                var mobileEl = jQuery("#logo img.logo-mobile");
+                var mobileLogoW = mobileEl.width();
+                var mobileLogoH = mobileEl.height();
+                mobileEl.attr("src", "{% static 'core/images/home-retina.png' %}").width(mobileLogoW).height(mobileLogoH);
+                var mobileStickyEl = jQuery("#logo img.logo-mobile-sticky");
+                var mobileStickyLogoW = mobileStickyEl.width();
+                var mobileStickyLogoH = mobileStickyEl.height();
+                console.log(mobileStickyEl);
+                console.log([mobileStickyLogoW, mobileStickyLogoH]);
+                mobileStickyEl.attr("src", "{% static 'core/images/home-retina.png' %}").width(mobileStickyLogoW).height(mobileStickyLogoH);
+            }
+        });
+    </script>
 </body>
+
 </html>

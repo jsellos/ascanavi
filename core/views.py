@@ -27,11 +27,11 @@ def nossahistoria(request):
 
 def memorias(request):
     try:
-        reg = Memoria.objects.latest('id')
+        itens = Memoria.objects.order_by('-data')
     except Memoria.DoesNotExist:
-        reg = None
+        itens = None
 
-    context = {'reg': reg}
+    context = {'itens': itens}
     return render(request, 'memorias.html', context)
 
 def associados(request):
@@ -50,7 +50,7 @@ def dicas(request):
         cat = None
 
     try:
-        itens = Dica.objects.order_by('-id')
+        itens = Dica.objects.order_by('-dthora')
     except Dica.DoesNotExist:
         itens = None
 
@@ -60,11 +60,17 @@ def dicas(request):
 
 def noticias(request):
     try:
-        reg = Noticia.objects.latest('id')
-    except Noticia.DoesNotExist:
-        reg = None
+        cat = NoticiasCategoria.objects.order_by('nome')
+    except NoticiasCategoria.DoesNotExist:
+        cat = None
 
-    context = {'reg': reg}
+    try:
+        itens = Noticia.objects.order_by('-dthora')
+    except Noticia.DoesNotExist:
+        itens = None
+
+    context = {'cat': cat,
+               'itens': itens}
     return render(request, 'noticias.html', context)
 
 def contato(request):

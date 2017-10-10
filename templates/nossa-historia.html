@@ -57,7 +57,9 @@
                                             <div class="column_attr clearfix align_center">
                                                 <h2>Nossa história</h2>
                                                 <p class="big">
-                                                    Breve texto falando algo como: Conheça um pouco de nossa história de lutas e vitórias...
+                                                    {% if reg %}
+                                                        {{ reg.subtitulo_cabecalho }}
+                                                    {% endif %}
                                                 </p>
                                             </div>
                                         </div>
@@ -85,7 +87,11 @@
                                     <div class="mcb-wrap-inner">
                                         <div class="column mcb-column one column_column ">
                                             <div class="column_attr clearfix align_center">
-                                                <h3>Curabitur elit. Curabitur at consequat wisi. Vestibulum lacinia sit amet mauris. Etiam hendrerit nonummy. Phasellus id rutrum elementum. Mauris arcu. Cras aliquet. Aliquam nec velit pretium convallis. Fusce a nunc. Etiam vestibulum.</h3>
+                                                <h3>
+                                                    {% if reg %}
+                                                        {{ reg.texto_destaque }}
+                                                    {% endif %}
+                                                </h3>
                                             </div>
                                         </div>
                                         <div class="column mcb-column one column_divider ">
@@ -98,47 +104,20 @@
                                         </div>
                                         <div class="column mcb-column one column_column column-margin-20px">
                                             <div class="column_attr clearfix">
-                                                <h3>Era uma vez... (ou algum texto que inicie a história)</h3>
+                                                <h3>
+                                                    {% if reg %}
+                                                        {{ reg.titulo_historia }}
+                                                    {% endif %}
+                                                </h3>
                                             </div>
                                         </div>
                                         <div class="column mcb-column one column_column ">
                                             <div class="column_attr clearfix" style=" padding:0 5% 0 0;">
-                                                <p>
-                                                    Nam at sagittis eu, dapibus aliquam. Nunc non ante congue sit amet, lacinia quam. Proin orci. Nam dolor sit amet mauris. Nunc in faucibus velit nec ante. Vivamus nec lorem a dolor sit amet, consectetuer viverra justo. Maecenas ligula dui, dictum eu, urna. Pellentesque sem quam, lobortis augue. Pellentesque habitant morbi tristique senectus et magnis dis parturient montes, nascetur ridiculus mus.
-                                                </p>
-                                                <p>
-                                                    Etiam in posuere cubilia Curae, Duis neque ultrices sapien libero, pulvinar felis, volutpat laoreet. Nam tempor eros in faucibus condimentum ac, accumsan sit amet, aliquam pharetra accumsan lectus vulputate eget, enim. Phasellus ipsum.
-                                                </p>
-                                                <p>
-                                                    Nam at sagittis eu, dapibus aliquam. Nunc non ante congue sit amet, lacinia quam. Proin orci. Nam dolor sit amet mauris. Nunc in faucibus velit nec ante. Vivamus nec lorem a dolor sit amet, consectetuer viverra justo. Maecenas ligula dui, dictum eu, urna. Pellentesque sem quam, lobortis augue. Pellentesque habitant morbi tristique senectus et magnis dis parturient montes, nascetur ridiculus mus.
-                                                </p>
-                                                <p>
-                                                    Etiam in posuere cubilia Curae, Duis neque ultrices sapien libero, pulvinar felis, volutpat laoreet. Nam tempor eros in faucibus condimentum ac, accumsan sit amet, aliquam pharetra accumsan lectus vulputate eget, enim. Phasellus ipsum.
-                                                </p>
-                                                <p>
-                                                    Nam at sagittis eu, dapibus aliquam. Nunc non ante congue sit amet, lacinia quam. Proin orci. Nam dolor sit amet mauris. Nunc in faucibus velit nec ante. Vivamus nec lorem a dolor sit amet, consectetuer viverra justo. Maecenas ligula dui, dictum eu, urna. Pellentesque sem quam, lobortis augue. Pellentesque habitant morbi tristique senectus et magnis dis parturient montes, nascetur ridiculus mus.
-                                                </p>
-                                                <p>
-                                                    Etiam in posuere cubilia Curae, Duis neque ultrices sapien libero, pulvinar felis, volutpat laoreet. Nam tempor eros in faucibus condimentum ac, accumsan sit amet, aliquam pharetra accumsan lectus vulputate eget, enim. Phasellus ipsum.
-                                                </p>
-                                                <p>
-                                                    Nam at sagittis eu, dapibus aliquam. Nunc non ante congue sit amet, lacinia quam. Proin orci. Nam dolor sit amet mauris. Nunc in faucibus velit nec ante. Vivamus nec lorem a dolor sit amet, consectetuer viverra justo. Maecenas ligula dui, dictum eu, urna. Pellentesque sem quam, lobortis augue. Pellentesque habitant morbi tristique senectus et magnis dis parturient montes, nascetur ridiculus mus.
-                                                </p>
-                                                <p>
-                                                    Etiam in posuere cubilia Curae, Duis neque ultrices sapien libero, pulvinar felis, volutpat laoreet. Nam tempor eros in faucibus condimentum ac, accumsan sit amet, aliquam pharetra accumsan lectus vulputate eget, enim. Phasellus ipsum.
-                                                </p>
-                                                <p>
-                                                    Nam at sagittis eu, dapibus aliquam. Nunc non ante congue sit amet, lacinia quam. Proin orci. Nam dolor sit amet mauris. Nunc in faucibus velit nec ante. Vivamus nec lorem a dolor sit amet, consectetuer viverra justo. Maecenas ligula dui, dictum eu, urna. Pellentesque sem quam, lobortis augue. Pellentesque habitant morbi tristique senectus et magnis dis parturient montes, nascetur ridiculus mus.
-                                                </p>
-                                                <p>
-                                                    Etiam in posuere cubilia Curae, Duis neque ultrices sapien libero, pulvinar felis, volutpat laoreet. Nam tempor eros in faucibus condimentum ac, accumsan sit amet, aliquam pharetra accumsan lectus vulputate eget, enim. Phasellus ipsum.
-                                                </p>
-                                                <p>
-                                                    Nam at sagittis eu, dapibus aliquam. Nunc non ante congue sit amet, lacinia quam. Proin orci. Nam dolor sit amet mauris. Nunc in faucibus velit nec ante. Vivamus nec lorem a dolor sit amet, consectetuer viverra justo. Maecenas ligula dui, dictum eu, urna. Pellentesque sem quam, lobortis augue. Pellentesque habitant morbi tristique senectus et magnis dis parturient montes, nascetur ridiculus mus.
-                                                </p>
-                                                <p>
-                                                    Etiam in posuere cubilia Curae, Duis neque ultrices sapien libero, pulvinar felis, volutpat laoreet. Nam tempor eros in faucibus condimentum ac, accumsan sit amet, aliquam pharetra accumsan lectus vulputate eget, enim. Phasellus ipsum.
-                                                </p>
+                                                {% if reg %}
+                                                    {% autoescape off %}
+                                                        {{ reg.historia }}
+                                                    {% endautoescape %}
+                                                {% endif %}
                                             </div>
                                         </div>
 
