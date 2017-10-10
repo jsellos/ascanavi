@@ -1,0 +1,57 @@
+{% load static %}
+
+<div id="Header_wrapper">
+            <header id="Header">
+                <div class="header_placeholder"></div>
+                <div id="Top_bar">
+                    <div class="container">
+                        <div class="column one">
+                            <div class="top_bar_left clearfix">
+                                <div class="logo">
+                                    <a id="logo" href="{% url 'index' %}" title="ASCANAVI"><img class="logo-main scale-with-grid" src="{% static 'core/images/home.png' %}" alt="Início" /><img class="logo-sticky scale-with-grid" src="{% static 'core/images/home.png' %}" alt="Início" /><img class="logo-mobile scale-with-grid" src="{% static 'core/images/home.png' %}" alt="Início" /><img class="logo-mobile-sticky scale-with-grid" src="{% static 'core/images/home.png' %}" alt="Início" />
+                                    </a>
+                                </div>
+                                <div class="menu_wrapper">
+                                    <nav id="menu" class="menu-main-menu-container">
+                                        <ul id="menu-main-menu" class="menu">
+                                            <li id="current_page_item">
+                                                <a href="{% url 'index' %}"><span>Início</span></a>
+                                            </li>
+                                            <li>
+                                                <a href="{% url 'quem-somos' %}"><span>Quem somos</span></a>
+                                            </li>
+                                            <li>
+                                                <a href="{% url 'dicas' %}"><span>Dicas</span></a>
+                                            </li>
+                                            <li>
+                                                <a href="{% url 'noticias' %}"><span>Notícias</span></a>
+                                            </li>
+                                            <li>
+                                                <a href="{% url 'contato' %}"><span>Contato</span></a>
+                                            </li>
+                                            <!--
+                                            <li>
+                                                <a href="#"><span>Parceiros</span></a>
+                                            </li>
+                                            -->
+                                            <li>
+                                                <a href="{% url 'contribuir' %}"><span><span style="padding: 0; color: #e0aa49">Contribuir</span></span></a>
+                                            </li>
+                                        </ul>
+                                    </nav><a class="responsive-menu-toggle" href="#"><i class="icon-menu-fine"></i></a>
+                                </div>
+                                <div class="secondary_menu_wrapper"></div>
+                                <div class="banner_wrapper"></div>
+                                <div class="search_wrapper">
+                                    <form method="get" id="searchform" action="#">
+                                        <i class="icon_search icon-search-fine"></i><a href="#" class="icon_close"><i class="icon-cancel-fine"></i></a>
+                                        <input type="text" class="field" name="s" id="s" placeholder="Enter your search" />
+                                        <input type="submit" class="submit" value="" style="display:none;" />
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </div>

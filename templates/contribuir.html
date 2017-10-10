@@ -1,0 +1,227 @@
+{% load static %}
+
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7 "> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie10 lt-ie9"> <![endif]-->
+<!--[if IE 9]><html class="no-js lt-ie10"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>ASCANAVI - Associação dos Catadores de Materiais Recicláveis Natureza Viva</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="{% static 'core/images/favicon.ico' %}">
+
+    <!-- FONTS -->
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:100,300,400,400italic,700'>
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Patua+One:100,300,400,400italic,700'>
+    <link rel='stylesheet' id='Nunito+Sans-css' href='http://fonts.googleapis.com/css?family=Nunito+Sans:100,300italic,400,400italic,700,700italic,800'>
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Lato:100,300,400'>
+
+    <!-- CSS -->
+    <link rel='stylesheet' href="{% static 'core/css/global.css' %}">
+    <link rel='stylesheet' href="{% static 'core/css/structure.css' %}">
+    <link rel='stylesheet' href="{% static 'core/css/home.css' %}">
+    <link rel='stylesheet' href="{% static 'core/css/custom.css' %}">
+
+</head>
+
+<body class="color-custom style-simple layout-full-width nice-scroll-on button-flat if-zoom if-border-hide no-content-padding hide-love header-classic minimalist-header-no sticky-header sticky-tb-color ab-hide subheader-both-center menu-link-color menuo-no-borders menuo-right mobile-tb-left mobile-side-slide mobile-mini-mr-lc mobile-header-mini mobile-sticky">
+    <div id="Wrapper">
+        {% include 'header.html' %}
+        <div id="Content">
+            <div class="content_wrapper clearfix">
+                <div class="sections_group">
+                    <div class="entry-content">
+                        <div class="section mcb-section" style="padding-top:120px; padding-bottom:20px; background-color:#f5f5f5; background-image:url({% static 'core/images/home_home_sectionbg2.png' %}); background-repeat:no-repeat; background-position:center top;">
+                            <div class="section_wrapper mcb-section-inner">
+                                <div class="wrap mcb-wrap one  valign-top clearfix">
+                                    <div class="mcb-wrap-inner">
+                                        <div class="column mcb-column one-fourth column_placeholder">
+                                            <div class="placeholder">
+                                                &nbsp;
+                                            </div>
+                                        </div>
+                                        <div class="column mcb-column one-second column_column ">
+                                            <div class="column_attr clearfix align_center">
+                                                <h2>Faça parte de nossa história</h2>
+                                                <p class="big">
+                                                    {% if reg %}
+                                                        {{ reg.subtitulo_cabecalho }}
+                                                    {% endif %}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="section mcb-section full-width no-margin-h no-margin-v  " style="padding-top:0px; padding-bottom:0px;">
+                            <div class="section_wrapper mcb-section-inner">
+                                <div class="wrap mcb-wrap one  valign-top clearfix">
+                                    <div class="mcb-wrap-inner">
+                                        <div class="column mcb-column one column_image ">
+                                            <div class="image_frame image_item no_link scale-with-grid aligncenter no_border">
+                                                <div class="image_wrapper"><img class="scale-with-grid" src="{% static 'core/images/livro_ascanavi.jpg' %}" alt="Livro Recliclando Palavras" width="1920" height="790" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="section mcb-section" style="padding-top:140px; padding-bottom:90px;">
+                            <div class="section_wrapper mcb-section-inner">
+                                <div class="wrap mcb-wrap one  valign-top clearfix">
+                                    <div class="mcb-wrap-inner">
+                                    {% if itens %}
+                                        {% for i in itens %}
+
+                                            <div class="column mcb-column one-third column_column ">
+                                                <div class="column_attr clearfix" style=" padding:40px 15% 0 0;">
+                                                    <h4>{{ i.titulo }}</h4>
+                                                    {% autoescape off %}
+                                                        {{ i.texto }}
+                                                    {% endautoescape %}
+                                                </div>
+                                            </div>
+                                            <div class="column mcb-column two-third column_image ">
+                                                <div class="image_frame image_item no_link scale-with-grid aligncenter no_border">
+                                                    <div class="image_wrapper"><img class="scale-with-grid" src="{% static 'core/images/livro-ascanavi-widget.jpg' %}" alt="Livro Reciclando Palavras" width="780" height="327" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="column mcb-column one column_divider ">
+                                                <hr class="no_line" style="margin: 0 auto 20px;" />
+                                            </div>
+                                        {% endfor %}
+                                    {% endif %}
+                                        <!-- INICIO DO ITEM
+                                        <div class="column mcb-column one-third column_column ">
+                                            <div class="column_attr clearfix" style=" padding:40px 15% 0 0;">
+                                                <h4>Comprar o livro</h4>
+                                                <p>
+                                                    Aqui entra uma sinopse do livro|... Nulla porta ligula. Sed vehicula sed, posuere ante eget risus. Vivamus fermentum nec, bibendum eget, ante. Integer mi libero.
+                                                </p>
+                                                <p class="big">
+                                                    Para adquirir o livro, ligue para<br>(33) 3275-6435 ou <a href="contato.html">clique aqui</a>.
+                                                </p>
+
+                                            </div>
+                                        </div>
+                                        <div class="column mcb-column two-third column_image ">
+                                            <div class="image_frame image_item no_link scale-with-grid aligncenter no_border">
+                                                <div class="image_wrapper"><img class="scale-with-grid" src="{% static 'core/images/livro-ascanavi-widget.jpg' %}" alt="Livro Reciclando Palavras" width="780" height="327" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="column mcb-column one column_divider ">
+                                            <hr class="no_line" style="margin: 0 auto 20px;" />
+                                        </div>
+                                        FIM DO ITEM -->
+
+                                        <div class="column mcb-column one column_column  column-margin-20px">
+                                            <div class="column_attr clearfix">
+                                                <h3>
+                                                    {% if reg %}
+                                                        {{ reg.titulo_rodape }}
+                                                    {% endif %}
+                                                </h3>
+                                            </div>
+                                        </div>
+                                        <div class="column mcb-column one-third column_column ">
+                                            <div class="column_attr clearfix" style=" padding:0 5% 0 0;">
+                                                {% if reg %}
+                                                    {% autoescape off %}
+                                                        {{ reg.texto_rodape_1}}
+                                                    {% endautoescape %}
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                        <div class="column mcb-column one-third column_column ">
+                                            <div class="column_attr clearfix" style=" padding:0 5% 0 0;">
+                                                {% if reg %}
+                                                    {% autoescape off %}
+                                                        {{ reg.texto_rodape_2}}
+                                                    {% endautoescape %}
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                        <div class="column mcb-column one-third column_column ">
+                                            <div class="column_attr clearfix" style=" padding:0 5% 0 0;">
+                                                {% if reg %}
+                                                    {% autoescape off %}
+                                                        {{ reg.texto_rodape_3}}
+                                                    {% endautoescape %}
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% include 'footer.html' %}
+    </div>
+    <div id="Side_slide" class="right dark">
+        <div class="close-wrapper">
+            <a href="#" class="close"><i class="icon-cancel-fine"></i></a>
+        </div>
+        <div class="menu_wrapper"></div>
+    </div>
+    <div id="body_overlay"></div>
+
+    <!-- JS -->
+    <script src="{% static 'core/js/jquery-2.1.4.min.js' %}"></script>
+    <script src="{% static 'core/js/ui/jquery-ui.min.js' %}"></script>
+
+    <script src="{% static 'core/js/mfn.menu.js' %}"></script>
+    <script src="{% static 'core/js/jquery.plugins.js' %}"></script>
+    <script src="{% static 'core/js/jquery.jplayer.min.js' %}"></script>
+    <script src="{% static 'core/js/animations/animations.js' %}"></script>
+    <script src="{% static 'core/js/scripts.js' %}"></script>
+
+    <script id="mfn-dnmc-retina-js">
+        jQuery(window).load(function() {
+            jQuery(".jq-tabs").tabs();
+
+            var retina = window.devicePixelRatio > 1 ? true : false;
+            if (retina) {
+                var retinaEl = jQuery("#logo img.logo-main");
+                var retinaLogoW = retinaEl.width();
+                var retinaLogoH = retinaEl.height();
+                retinaEl.attr("src", "{% static 'core/images/home-retina.png' %}").width(retinaLogoW).height(retinaLogoH);
+                var stickyEl = jQuery("#logo img.logo-sticky");
+                var stickyLogoW = stickyEl.width();
+                var stickyLogoH = stickyEl.height();
+                stickyEl.attr("src", "{% static 'core/images/home-retina.png' %}").width(stickyLogoW).height(stickyLogoH);
+                var mobileEl = jQuery("#logo img.logo-mobile");
+                var mobileLogoW = mobileEl.width();
+                var mobileLogoH = mobileEl.height();
+                mobileEl.attr("src", "{% static 'core/images/home-retina.png' %}").width(mobileLogoW).height(mobileLogoH);
+                var mobileStickyEl = jQuery("#logo img.logo-mobile-sticky");
+                var mobileStickyLogoW = mobileStickyEl.width();
+                var mobileStickyLogoH = mobileStickyEl.height();
+                console.log(mobileStickyEl);
+                console.log([mobileStickyLogoW, mobileStickyLogoH]);
+                mobileStickyEl.attr("src", "{% static 'core/images/home-retina.png' %}").width(mobileStickyLogoW).height(mobileStickyLogoH);
+            }
+        });
+    </script>
+</body>
+
+</html>

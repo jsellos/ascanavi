@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
@@ -26,7 +25,6 @@ SECRET_KEY = '(k!p)+^a_(bff%zsp50h5kjmf2%+k=!)(7ujic3+t@*m75!kkd'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -65,10 +63,14 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'core.context_processors.contato',
             ],
         },
     },
 ]
+
+### tava dentro de context_processors:
+### 'django.template.context_processors.media',
 
 WSGI_APPLICATION = 'ascanavi.wsgi.application'
 
@@ -122,6 +124,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+#MEDIA_URL = '/media/'
+#MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Informações pegas em: https://pypi.python.org/pypi/django-resized/0.3.7
 DJANGORESIZED_DEFAULT_SIZE = [1920, 1080]

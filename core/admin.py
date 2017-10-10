@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import DicasCategoria, Dica, NoticiasCategoria, Noticia, Associado, Memoria, QuemSomos
+from .models import DicasCategoria, Dica, NoticiasCategoria, Noticia, Associado, Memoria, QuemSomos, NossaHistoria, LinkUtil, Contato, Contribuir, ContribuirItem
 
 class _dica(admin.ModelAdmin):
     Model        = Dica
@@ -23,5 +23,10 @@ admin.site.register((
     DicasCategoria,
     NoticiasCategoria,
     Associado,
-    QuemSomos
+    QuemSomos,
+    NossaHistoria,
+    LinkUtil,
+    Contato,
+    Contribuir,
+    ContribuirItem,
 ))
