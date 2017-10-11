@@ -79,7 +79,7 @@
                                     <ul class="portfolio_group lm_wrapper isotope masonry col-3">
                                         {% if itens %}
                                             {% for i in itens %}
-                                                <li class="portfolio-item isotope-item {{ i.idCat|lower|cut:" "|cut:"." }} has-thumbnail">
+                                                <li class="portfolio-item isotope-item {{ i.id_cat|lower|cut:" "|cut:"." }} has-thumbnail">
                                                     <div class="portfolio-item-fw-bg">
                                                         <div class="portfolio-item-fill"></div>
                                                         <div class="list_style_header">
@@ -108,11 +108,11 @@
                                                             <div class="details-wrapper">
                                                                 <dl>
                                                                     <dt>Data</dt>
-                                                                    <dd>{{ i.dthora }}</dd>
+                                                                    <dd>{{ i.dt_hora }}</dd>
                                                                 </dl>
                                                             </div>
                                                             <div class="desc-wrapper">
-                                                                {{ i.texto|make_list|slice:'0:200'|join:'' }}...
+                                                                {{ i.texto|striptags|make_list|slice:'0:200'|join:'' }}...
                                                             </div>
                                                         </div>
                                                     </div>

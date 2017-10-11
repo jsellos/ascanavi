@@ -36,93 +36,67 @@
     <link rel='stylesheet' href="{% static 'core/css/custom.css' %}">
 
 </head>
-
-<body class="color-custom style-simple layout-full-width nice-scroll-on button-flat if-zoom if-border-hide hide-love header-classic minimalist-header-no sticky-header sticky-tb-color ab-hide subheader-both-center menu-link-color menuo-no-borders menuo-right mobile-tb-left mobile-side-slide mobile-mini-mr-lc mobile-header-mini mobile-sticky">
+<body class="color-custom style-simple layout-full-width nice-scroll-on button-flat if-zoom if-border-hide no-content-padding hide-love header-classic minimalist-header-no sticky-header sticky-tb-color ab-hide subheader-both-center menu-link-color menuo-no-borders menuo-right mobile-tb-left mobile-side-slide mobile-mini-mr-lc mobile-header-mini mobile-sticky">
     <div id="Wrapper">
         {% include 'header.html' %}
         <div id="Content">
             <div class="content_wrapper clearfix">
                 <div class="sections_group">
+                    <div class="entry-content">
+                        <div class="section mcb-section" style="padding-top:120px; padding-bottom:20px; background-color:#f5f5f5; background-image:url{% static 'core/images/home_home_sectionbg2.png' %}); background-repeat:no-repeat; background-position:center top;">
+                            <div class="section_wrapper mcb-section-inner">
+                                <div class="wrap mcb-wrap one  valign-top clearfix">
+                                    <div class="mcb-wrap-inner">
+                                        <div class="column mcb-column one-fourth column_placeholder">
+                                            <div class="placeholder">
+                                                &nbsp;
+                                            </div>
+                                        </div>
+                                        <div class="column mcb-column one-second column_column ">
+                                            <div class="column_attr clearfix align_center">
+                                                <h2>Associados</h2>
+                                                <p class="big">
+                                                    Subtitulo a definir -> esse texto é fixo, portanto, é necessário informar a equipe de SI para que seja ajustado ;-)
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="section mcb-section" style="/*padding-top:140px;*/ padding-bottom:90px;">
+                            <div class="section_wrapper mcb-section-inner">
 
-                    <div class="section section-filters">
-                        <div class="section_wrapper clearfix">
-                            <div id="Filters" class="column one  isotope-filters only only-categories">
-                                <ul class="filters_buttons">
-                                    <li class="label">
-                                        Filter by
-                                    </li>
-                                    <li class="categories">
-                                        <a class="open" href="#"><i class="icon-docs"></i>Categorias<i class="icon-down-dir"></i></a>
-                                    </li>
-                                    <li class="reset">
-                                        <a class="close" data-rel="*" href="noticias.html"><i class="icon-cancel"></i> Todas</a>
-                                    </li>
-                                </ul>
-                                <div class="filters_wrapper" data-cat="">
-                                    <ul class="categories">
-                                        <li class="reset-inner current-cat"><a class="close" data-rel="*" href="">Todas</a></li>
-                                        {% if cat %}
-                                            {% for i in cat %}
-                                                <li><a data-rel=".{{ i.nome|lower|cut:" "|cut:"." }}" href="">{{ i.nome }}</a></li>
-                                            {% endfor %}
-                                        {% endif %}
-                                        <li class="close"><a href="#"><i class="icon-cancel"></i></a></li>
-                                    </ul>
-                                </div>
+
+                                                                        {% if itens %}
+                                        {% for i in itens %}
+                                                <div class="column one-fourth column_our_team">
+                                                    <div class="team team_list">
+                                                        <div class="image_frame no_link scale-with-grid">
+                                                            <div class="image_wrapper"><img class="scale-with-grid" src="{% static 'core/images/home_design_portfolio_2-576x450.jpg' %}" alt="{{ i.nome }}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="desc_wrapper">
+                                                            <h4>{{ i.nome }}</h4>
+                                                            <hr class="hr_color">
+                                                            <!--
+                                                            <div class="desc">
+                                                                Vitae adipiscing turpis. Aenean ligula nibh, molestie id viverra a, dapibus at dolor.
+                                                            </div>
+                                                            <div class="links">
+                                                                <a href="mailto:noreply@envato.com" class="icon_bar icon_bar_small"><span class="t"><i class="icon-mail"></i></span><span class="b"><i class="icon-mail"></i></span></a><a target="_blank" href="http://facebook.com/" class="icon_bar icon_bar_small"><span class="t"><i class="icon-facebook"></i></span><span class="b"><i class="icon-facebook"></i></span></a><a target="_blank" href="http://twitter.com/" class="icon_bar icon_bar_small"><span class="t"><i class="icon-twitter"></i></span><span class="b"><i class="icon-twitter"></i></span></a><a target="_blank" href="http://www.linkedin.com/" class="icon_bar icon_bar_small"><span class="t"><i class="icon-linkedin"></i></span><span class="b"><i class="icon-linkedin"></i></span></a>
+                                                            </div>
+                                                            -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        {% endfor %}
+                                    {% endif %}
+
+
                             </div>
                         </div>
-                    </div>
-                    <div class="section">
-                        <div class="section_wrapper clearfix">
-                            <div class="column one column_portfolio">
-                                <div class="portfolio_wrapper isotope_wrapper">
-                                    <ul class="portfolio_group lm_wrapper isotope masonry col-3">
-                                        {% if itens %}
-                                            {% for i in itens %}
-                                                <li class="portfolio-item isotope-item {{ i.idCat|lower|cut:" "|cut:"." }} has-thumbnail">
-                                                    <div class="portfolio-item-fw-bg">
-                                                        <div class="portfolio-item-fill"></div>
-                                                        <div class="list_style_header">
-                                                            <h3 class="entry-title" itemprop="headline"><a class="link" href="/noticias/{{ i.id }}">{{ i.titulo }}</a></h3>
-                                                            <div class="links_wrapper">
-                                                                <a href="#" class="button button_js portfolio_prev_js"><span class="button_icon"><i class="icon-up-open"></i></span></a><a href="#" class="button button_js portfolio_next_js"><span class="button_icon"><i class="icon-down-open"></i></span></a><a href="/noticias/{{ i.id }}" class="button button_left button_theme button_js"><span class="button_icon"><i class="icon-link"></i></span><span class="button_label">Leia mais</span></a>
-                                                            </div>
-                                                        </div>
-                                                        <div class="image_frame scale-with-grid">
-                                                            <div class="image_wrapper">
-                                                                <a href="/noticias/{{ i.id }}">
-                                                                    <div class="mask"></div><img width="960" height="750" src="{% static 'core/images/home_home_product1-960x750.jpg' %}" class="scale-with-grid wp-post-image" alt="">
-                                                                </a>
-                                                                <div class="image_links double">
-                                                                    <a href="{% static 'core/images/home_home_product1-1024x931.jpg' %}" class="zoom" rel="prettyphoto"><i class="icon-search"></i></a><a href="/noticias/{{ i.id }}" class="link"><i class="icon-link"></i></a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="desc">
-                                                            <div class="title_wrapper">
-                                                                <h5 class="entry-title" itemprop="headline"><a class="link" href="/noticias/{{ i.id }}">{{ i.titulo }}</a></h5>
-                                                                <div class="button-love">
-                                                                    <a href="#" class="mfn-love " data-id="45"><span class="icons-wrapper"><i class="icon-heart-empty-fa"></i><i class="icon-heart-fa"></i></span><span class="label">0</span></a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="details-wrapper">
-                                                                <dl>
-                                                                    <dt>Data</dt>
-                                                                    <dd>{{ i.dthora }}</dd>
-                                                                </dl>
-                                                            </div>
-                                                            <div class="desc-wrapper">
-                                                                {{ i.texto|make_list|slice:'0:200'|join:'' }}...
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            {% endfor %}
-                                        {% endif %}
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>
@@ -137,9 +111,9 @@
     </div>
     <div id="body_overlay"></div>
 
-
     <!-- JS -->
     <script src="{% static 'core/js/jquery-2.1.4.min.js' %}"></script>
+    <script src="{% static 'core/js/ui/jquery-ui.min.js' %}"></script>
 
     <script src="{% static 'core/js/mfn.menu.js' %}"></script>
     <script src="{% static 'core/js/jquery.plugins.js' %}"></script>
@@ -149,6 +123,8 @@
 
     <script id="mfn-dnmc-retina-js">
         jQuery(window).load(function() {
+            jQuery(".jq-tabs").tabs();
+
             var retina = window.devicePixelRatio > 1 ? true : false;
             if (retina) {
                 var retinaEl = jQuery("#logo img.logo-main");
@@ -173,5 +149,4 @@
         });
     </script>
 </body>
-
 </html>

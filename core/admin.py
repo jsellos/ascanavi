@@ -3,13 +3,13 @@ from .models import DicasCategoria, Dica, NoticiasCategoria, Noticia, Associado,
 
 class _dica(admin.ModelAdmin):
     Model        = Dica
-    list_display = ['dthora', 'titulo']
-    list_filter  = ['dthora', 'titulo']
+    list_display = ['dt_hora', 'titulo']
+    list_filter  = ['dt_hora', 'titulo']
 
 class _noticia(admin.ModelAdmin):
     Model        = Noticia
-    list_display = ['dthora', 'titulo']
-    list_filter  = ['dthora', 'titulo']
+    list_display = ['dt_hora', 'titulo']
+    list_filter  = ['dt_hora', 'titulo']
 
 class _memoria(admin.ModelAdmin):
     Model        = Memoria

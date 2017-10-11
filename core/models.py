@@ -13,11 +13,12 @@ class DicasCategoria(models.Model):
         verbose_name_plural = 'categorias de dicas'
 
 class Dica(models.Model):
-    idCat  = models.ForeignKey('DicasCategoria', verbose_name='categoria')
-    dthora = models.DateTimeField(auto_now=True, verbose_name='data e hora da inclusão')
-    titulo = models.CharField(max_length=100, verbose_name='título')
-    texto  = models.TextField()
-    imagem = ResizedImageField(size=[480, 375], upload_to='dicas')
+    id_cat         = models.ForeignKey('DicasCategoria', verbose_name='categoria')
+    dt_hora         = models.DateTimeField(auto_now=True, verbose_name='data e hora da inclusão')
+    titulo         = models.CharField(max_length=100, verbose_name='título')
+    texto_destaque = models.TextField(max_length=500, verbose_name='texto de destaque')
+    texto          = models.TextField()
+    imagem         = ResizedImageField(size=[480, 375], upload_to='dicas')
 
     def __str__(self):
         return self.titulo
@@ -33,11 +34,12 @@ class NoticiasCategoria(models.Model):
         verbose_name_plural = 'categorias de notícias'
 
 class Noticia(models.Model):
-    idCat  = models.ForeignKey('NoticiasCategoria', verbose_name='categoria')
-    dthora = models.DateTimeField(auto_now=True, verbose_name='data e hora da inclusão')
-    titulo = models.CharField(max_length=100, verbose_name='título')
-    texto  = models.TextField()
-    imagem = ResizedImageField(size=[480, 375], upload_to='noticias')
+    id_cat         = models.ForeignKey('NoticiasCategoria', verbose_name='categoria')
+    dt_hora        = models.DateTimeField(auto_now=True, verbose_name='data e hora da inclusão')
+    titulo         = models.CharField(max_length=100, verbose_name='título')
+    texto_destaque = models.TextField(max_length=500, verbose_name='texto de destaque')
+    texto          = models.TextField()
+    imagem         = ResizedImageField(size=[480, 375], upload_to='noticias')
 
     def __str__(self):
         return self.titulo
@@ -98,7 +100,7 @@ class LinkUtil(models.Model):
 
 class Contato(models.Model):
     email            = models.EmailField()
-    coleta           = models.ForeignKey('Dica', verbose_name='Dias e horários de coleta')
+    id_dica_coleta   = models.ForeignKey('Dica', verbose_name='Dias e horários de coleta')
     dicas_reciclagem = models.URLField(verbose_name='Dicas sobre reciclagem')
     facebook         = models.URLField()
 

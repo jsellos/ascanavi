@@ -36,11 +36,11 @@ def memorias(request):
 
 def associados(request):
     try:
-        reg = Associado.objects.latest('id')
+        itens = Associado.objects.order_by('nome')
     except Associado.DoesNotExist:
-        reg = None
+        itens = None
 
-    context = {'reg': reg}
+    context = {'itens': itens}
     return render(request, 'associados.html', context)
 
 def dicas(request):
@@ -50,13 +50,23 @@ def dicas(request):
         cat = None
 
     try:
-        itens = Dica.objects.order_by('-dthora')
+        itens = Dica.objects.order_by('-dt_hora')
     except Dica.DoesNotExist:
         itens = None
 
     context = {'cat': cat,
                'itens': itens}
     return render(request, 'dicas.html', context)
+
+def dica(request, id):
+    try:
+        reg = Dica.objects.get(pk = id)
+    except Dica.DoesNotExist:
+        reg = None
+
+    context = {'reg': reg}
+
+    return render(request, 'dica.html', context)
 
 def noticias(request):
     try:
@@ -65,13 +75,23 @@ def noticias(request):
         cat = None
 
     try:
-        itens = Noticia.objects.order_by('-dthora')
+        itens = Noticia.objects.order_by('-dt_hora')
     except Noticia.DoesNotExist:
         itens = None
 
     context = {'cat': cat,
                'itens': itens}
     return render(request, 'noticias.html', context)
+
+def noticia(request, id):
+    try:
+        reg = Noticia.objects.get(pk = id)
+    except Noticia.DoesNotExist:
+        reg = None
+
+    context = {'reg': reg}
+
+    return render(request, 'noticia.html', context)
 
 def contato(request):
     try:
@@ -96,6 +116,3 @@ def contribuir(request):
     context = {'reg': reg,
                'itens': itens}
     return render(request, 'contribuir.html', context)
-
-#faltou a dica (item)
-#faltou a notícia (item)
