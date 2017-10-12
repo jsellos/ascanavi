@@ -1,11 +1,23 @@
 from django.shortcuts import render
 #from django.http import HttpResponse
 #from django.template import loader, RequestContext
-from .models import QuemSomos, NossaHistoria, Memoria, Associado, Dica, DicasCategoria, Noticia, NoticiasCategoria, Contato, Contribuir, ContribuirItem
+from .models import Index, QuemSomos, NossaHistoria, Memoria, Associado, Dica, DicasCategoria, Noticia, NoticiasCategoria, Contato, Contribuir, ContribuirItem
 
 # Create your views here.
 def index(request):
-    return render(request, 'index.html')
+    try:
+        reg = Index.objects.latest('id')
+    except Index.DoesNotExist:
+        reg = None
+
+    try:
+        itens = Noticia.objects.order_by('-dt_hora')[:5]
+    except Noticia.DoesNotExist:
+        itens = None
+
+    context = {'reg': reg,
+               'itens': itens}
+    return render(request, 'index.html', context)
 
 def quemsomos(request):
     try:
@@ -65,7 +77,6 @@ def dica(request, id):
         reg = None
 
     context = {'reg': reg}
-
     return render(request, 'dica.html', context)
 
 def noticias(request):
@@ -90,7 +101,6 @@ def noticia(request, id):
         reg = None
 
     context = {'reg': reg}
-
     return render(request, 'noticia.html', context)
 
 def contato(request):

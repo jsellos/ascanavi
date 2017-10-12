@@ -55,12 +55,10 @@
                                         </div>
                                         <div class="column mcb-column three-fifth column_column ">
                                             <div class="column_attr clearfix align_center">
-                                                <h2 class="themecolor">CATADORES
-													<br>
-													de sonhos</h2>
+                                                <h2 class="themecolor">{% if reg %}{{ reg.principal_titulo|safe }}{% endif %}</h2>
                                                 <hr class="no_line" style="margin: 0 auto 10px;" />
                                                 <p class="big">
-                                                    algum subtitulo de impacto bem legalzão que deve ser bem coisado
+                                                    {% if reg %}{{ reg.principal_subtitulo|safe }}{% endif %}
                                                 </p>
                                             </div>
                                         </div>
@@ -74,7 +72,7 @@
                                     <div class="mcb-wrap-inner">
                                         <div class="column mcb-column one column_fancy_heading ">
                                             <div class="fancy_heading fancy_heading_line">
-                                                <h2 class="title">VOCÊ JÁ SABE?</h2>
+                                                <h2 class="title">{% if reg %}{{ reg.dica_titulo }}{% endif %}</h2>
                                             </div>
                                         </div>
                                     </div>
@@ -83,7 +81,7 @@
                                     <div class="mcb-wrap-inner">
                                         <div class="column mcb-column one column_zoom_box ">
                                             <div class="zoom_box">
-                                                <a href="/dicas/999">
+                                                <a href="/dicas/{% if reg %}{{ reg.dica1_id_id }}{% endif %}">
                                                     <div class="photo"><img class="scale-with-grid" src="{% static 'core/images/dia-hora.jpg' %}" alt="Dias e horários de coleta" width="780" height="780" />
                                                     </div>
                                                     <div class="desc" style="background-color:rgba(230, 174, 72, 0.8);">
@@ -99,7 +97,7 @@
                                         </div>
                                         <div class="column mcb-column one column_column ">
                                             <div class="column_attr clearfix align_center">
-                                                <h5 style="letter-spacing: 4px;">Dias e horários de coleta</h5>
+                                                <h5 style="letter-spacing: 4px;">{% if reg %}{{ reg.dica1_id }}{% endif %}</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -108,7 +106,7 @@
                                     <div class="mcb-wrap-inner">
                                         <div class="column mcb-column one column_zoom_box ">
                                             <div class="zoom_box">
-                                                <a href="/dicas/999">
+                                                <a href="/dicas/{% if reg %}{{ reg.dica2_id_id }}{% endif %}">
                                                     <div class="photo"><img class="scale-with-grid" src="{% static 'core/images/reciclaveis.jpg' %}" alt="O que é reciclável" width="780" height="780" />
                                                     </div>
                                                     <div class="desc" style="background-color:rgba(230, 174, 72, 0.8);">
@@ -124,7 +122,7 @@
                                         </div>
                                         <div class="column mcb-column one column_column ">
                                             <div class="column_attr clearfix align_center">
-                                                <h5 style="letter-spacing: 4px;">O que é reciclavel</h5>
+                                                <h5 style="letter-spacing: 4px;">{% if reg %}{{ reg.dica2_id }}{% endif %}</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -133,7 +131,7 @@
                                     <div class="mcb-wrap-inner">
                                         <div class="column mcb-column one column_zoom_box ">
                                             <div class="zoom_box">
-                                                <a href="/dicas/999">
+                                                <a href="/dicas/{% if reg %}{{ reg.dica3_id_id }}{% endif %}">
                                                     <div class="photo"><img class="scale-with-grid" src="{% static 'core/images/bairros.jpg' %}" alt="Bairros atendidos" width="780" height="780" />
                                                     </div>
                                                     <div class="desc" style="background-color:rgba(230, 174, 72, 0.8);">
@@ -149,14 +147,15 @@
                                         </div>
                                         <div class="column mcb-column one column_column ">
                                             <div class="column_attr clearfix align_center">
-                                                <h5 style="letter-spacing: 4px;">Quais os bairros atendidos</h5>
+                                                <h5 style="letter-spacing: 4px;">{% if reg %}{{ reg.dica3_id }}{% endif %}</h5>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="section mcb-section has-video" style="padding-top:240px; padding-bottom:200px; background-color:#393739; background-image:url({% static 'core/images/home_home_videobg.jpg' %}); background-repeat:no-repeat; background-position:center;">
+                        <div class="section mcb-section has-video" style="padding-top:240px; padding-bottom:200px; background-color:#393739; background-image:url({% static 'core/images/livro-ascanavi-widget.jpg' %}); background-repeat:no-repeat; background-position:center; background-size:cover">
+                            <!--
                             <div class="section_video">
                                 <div class="mask"></div>
                                 <video poster="{% static 'core/images/home_home_videobg.jpg' %}" autoplay="true" loop="true" muted="muted">
@@ -164,14 +163,13 @@
                                     <source type="video/ogg" src="http://betheme.muffingroupsc.netdna-cdn.com/be/home/wp-content/uploads/2017/01/home_home_video.ogv" />
                                 </video>
                             </div>
+                            -->
                             <div class="section_wrapper mcb-section-inner">
                                 <div class="wrap mcb-wrap one  valign-top clearfix">
                                     <div class="mcb-wrap-inner">
                                         <div class="column mcb-column one column_column ">
                                             <div class="column_attr clearfix align_center">
-                                                <h2 style="color: #fff;">Perfection in
-													<br>
-													every inch of our products</h2>
+                                                <h2 style="color: #fff;">{% if reg %}{{ reg.contribuir_titulo|safe }}{% endif %}</h2>
                                             </div>
                                         </div>
                                         <div class="column mcb-column one-third column_placeholder">
@@ -180,39 +178,69 @@
                                             </div>
                                         </div>
                                         <div class="column mcb-column one-third column_button">
-                                            <a class="button  button_full_width button_size_2 button_theme button_js" href="process.html"><span class="button_label">Discover the process</span></a>
+                                            <a class="button  button_full_width button_size_2 button_theme button_js" href="/contribuir"><span class="button_label">{% if reg %}{{ reg.contrinuir_botao }}{% endif %}</span></a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="section mcb-section" style="padding-top:140px; padding-bottom:100px;">
+                            <div class="wrap mcb-wrap one  valign-top clearfix">
+                                <div class="mcb-wrap-inner">
+                                    <div class="column mcb-column one column_fancy_heading ">
+                                        <div class="fancy_heading fancy_heading_line">
+                                            <h2 class="title">ÚLTIMAS NOTÍCIAS</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="section_wrapper mcb-section-inner">
+                                {% if itens %}
+                                    {% for i in itens %}
+                                        <div class="wrap mcb-wrap one  valign-top clearfix">
+                                            <div class="mcb-wrap-inner">
+                                                <div class="column mcb-column one-second column_image ">
+                                                    <div class="image_frame image_item no_link scale-with-grid aligncenter no_border">
+                                                        <div class="image_wrapper"><img class="scale-with-grid" src="{% static 'core/images/home_home_product1-960x750.jpg' %}" alt="home_home_pic1" width="780" height="609" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="column mcb-column one-second column_column ">
+                                                    <div class="column_attr clearfix" style=" padding:50px 0 0 10%;">
+                                                        <h3>{{ i.titulo }}</h3>
+                                                        <p class="big">
+                                                            {{ i.texto_destaque }}
+                                                        </p>
+                                                        <hr class="no_line" style="margin: 0 auto 10px;" />
+                                                        <a class="button  button_size_2 button_theme button_js" href="/noticias/{{ i.id }}"><span class="button_label">Leia mais</span></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                {% endif %}
+                                <!-- inicio noticia
                                 <div class="wrap mcb-wrap one  valign-top clearfix">
                                     <div class="mcb-wrap-inner">
                                         <div class="column mcb-column one-second column_image ">
                                             <div class="image_frame image_item no_link scale-with-grid aligncenter no_border">
-                                                <div class="image_wrapper"><img class="scale-with-grid" src="{% static 'core/images/home_home_pic1.jpg' %}" alt="home_home_pic1" width="780" height="674" />
+                                                <div class="image_wrapper"><img class="scale-with-grid" src="{% static 'core/images/home_home_product1-960x750.jpg' %}" alt="home_home_pic1" width="780" height="609" />
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="column mcb-column one-second column_column ">
                                             <div class="column_attr clearfix" style=" padding:50px 0 0 10%;">
-                                                <h3>Family business
-													<br>
-													8 years of experiance</h3>
+                                                <h3>Título da notícia</h3>
                                                 <p class="big">
-                                                    Lorem ipsum dolor sit amet quam sed dui. In quam at sollicitudin mi. Cras at est. Quisque adipiscing elit.
-                                                </p>
-                                                <p>
-                                                    Suspendisse in vestibulum quis, tincidunt quis, odio. Donec iaculis. Nam tempor scelerisque, diam. Nullam imperdiet sagittis, mi quis consectetuer adipiscing urna. Nunc convallis libero. Nulla posuere arcu. Aenean feugiat dui, accumsan interdum. Suspendisse elit porta ornare.
+                                                    Breve texto falando sobre a notícia... Breve texto falando sobre a notícia... Breve texto falando sobre a notícia... Breve texto falando sobre a notícia... Breve texto falando sobre a notícia... Breve texto falando sobre a notícia... Breve texto falando sobre a notícia... Breve texto falando sobre a notícia... Breve texto falando sobre a notícia...
                                                 </p>
                                                 <hr class="no_line" style="margin: 0 auto 10px;" />
-                                                <a class="button  button_size_2 button_theme button_js" href="company.html"><span class="button_label">More about us</span></a>
+                                                <a class="button  button_size_2 button_theme button_js" href="/noticias"><span class="button_label">Leia mais</span></a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                fim noticia-->
                             </div>
                         </div>
 

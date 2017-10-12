@@ -2,6 +2,28 @@ from django.db import models
 from django_resized import ResizedImageField
 
 # Create your models here.
+class Index(models.Model):
+    principal_titulo    = models.CharField(max_length=100, verbose_name='título principal')
+    principal_subtitulo = models.CharField(max_length=100, verbose_name='subtítulo principal')
+    principal_imagem    = ResizedImageField(size=[1920, 715], upload_to='index', verbose_name='imagem principal')
+    dica_titulo         = models.CharField(max_length=100, verbose_name='título da dica')
+    dica1_id            = models.ForeignKey('Dica', related_name='dica1_id', verbose_name='dica da esquerda')
+    dica1_imagem        = ResizedImageField(size=[780, 780], upload_to='index', verbose_name='imagem da dica da esquerda')
+    dica2_id            = models.ForeignKey('Dica', related_name='dica2_id', verbose_name='dica do meio')
+    dica2_imagem        = ResizedImageField(size=[780, 780], upload_to='index', verbose_name='imagem da dica do meio')
+    dica3_id            = models.ForeignKey('Dica', related_name='dica3_id', verbose_name='dica da direita')
+    dica3_imagem        = ResizedImageField(size=[780, 780], upload_to='index', verbose_name='imagem da dica da direita')
+    contribuir_titulo   = models.CharField(max_length=100, verbose_name='texto sobre contribuir')
+    contribuir_imagem   = ResizedImageField(size=[1920, 1200], upload_to='index', verbose_name='imagem sobre contribuir')
+    contrinuir_botao    = models.CharField(max_length=100, verbose_name='texto do botão sobre contribuir')
+
+    def __str__(self):
+        return self.principal_titulo
+
+    class Meta:
+        verbose_name        = 'início'
+        verbose_name_plural = 'início'
+
 class DicasCategoria(models.Model):
     nome = models.CharField(max_length=30, verbose_name='categoria')
 
@@ -14,7 +36,7 @@ class DicasCategoria(models.Model):
 
 class Dica(models.Model):
     id_cat         = models.ForeignKey('DicasCategoria', verbose_name='categoria')
-    dt_hora         = models.DateTimeField(auto_now=True, verbose_name='data e hora da inclusão')
+    dt_hora        = models.DateTimeField(auto_now=True, verbose_name='data e hora da inclusão')
     titulo         = models.CharField(max_length=100, verbose_name='título')
     texto_destaque = models.TextField(max_length=500, verbose_name='texto de destaque')
     texto          = models.TextField()
@@ -101,7 +123,6 @@ class LinkUtil(models.Model):
 class Contato(models.Model):
     email            = models.EmailField()
     id_dica_coleta   = models.ForeignKey('Dica', verbose_name='Dias e horários de coleta')
-    dicas_reciclagem = models.URLField(verbose_name='Dicas sobre reciclagem')
     facebook         = models.URLField()
 
     def __str__(self):
