@@ -91,10 +91,10 @@
                                                         <div class="image_frame scale-with-grid">
                                                             <div class="image_wrapper">
                                                                 <a href="/dicas/{{ i.id }}">
-                                                                    <div class="mask"></div><img width="960" height="750" src="{% static 'core/images/home_home_product1-960x750.jpg' %}" class="scale-with-grid wp-post-image" alt="">
+                                                                    <div class="mask"></div><img width="960" height="750" src="{{ i.imagem.url }}" class="scale-with-grid wp-post-image" alt="">
                                                                 </a>
                                                                 <div class="image_links double">
-                                                                    <a href="{% static 'core/images/home_home_product1-1024x931.jpg' %}" class="zoom" rel="prettyphoto"><i class="icon-search"></i></a><a href="/dicas/{{ i.id }}" class="link"><i class="icon-link"></i></a>
+                                                                    <a href="{{ i.imagem.url }}" class="zoom" rel="prettyphoto"><i class="icon-search"></i></a><a href="/dicas/{{ i.id }}" class="link"><i class="icon-link"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
