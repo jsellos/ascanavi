@@ -1,128 +1,92 @@
 from django.shortcuts import render
 #from django.http import HttpResponse
 #from django.template import loader, RequestContext
-from .models import Index, QuemSomos, NossaHistoria, Memoria, Associado, Dica, DicasCategoria, Noticia, NoticiasCategoria, Contato, Contribuir, ContribuirItem
+from .models import Index, QuemSomos, NossaHistoria, Memoria, Associado, Dica, DicasCategoria, Noticia, \
+    NoticiasCategoria, Contato, Contribuir, ContribuirItem
 
 # Create your views here.
+
+
 def index(request):
-    try:
-        reg = Index.objects.latest('id')
-    except Index.DoesNotExist:
-        reg = None
-
-    try:
-        itens = Noticia.objects.order_by('-dt_hora')[:5]
-    except Noticia.DoesNotExist:
-        itens = None
-
+    reg = Index.objects.latest('id')
+    itens = Noticia.objects.order_by('-dt_hora')[:5]
     context = {'reg': reg,
                'itens': itens}
+
     return render(request, 'index.html', context)
 
-def quemsomos(request):
-    try:
-        reg = QuemSomos.objects.latest('id')
-    except QuemSomos.DoesNotExist:
-        reg = None
 
+def quemsomos(request):
+    reg = QuemSomos.objects.latest('id')
     context = {'reg': reg}
+
     return render(request, 'quem-somos.html', context)
 
-def nossahistoria(request):
-    try:
-        reg = NossaHistoria.objects.latest('id')
-    except NossaHistoria.DoesNotExist:
-        reg = None
 
+def nossahistoria(request):
+    reg = NossaHistoria.objects.latest('id')
     context = {'reg': reg}
+
     return render(request, 'nossa-historia.html', context)
 
-def memorias(request):
-    try:
-        itens = Memoria.objects.order_by('-data')
-    except Memoria.DoesNotExist:
-        itens = None
 
+def memorias(request):
+    itens = Memoria.objects.order_by('-data')
     context = {'itens': itens}
+
     return render(request, 'memorias.html', context)
 
-def associados(request):
-    try:
-        itens = Associado.objects.order_by('nome')
-    except Associado.DoesNotExist:
-        itens = None
 
+def associados(request):
+    itens = Associado.objects.order_by('nome')
     context = {'itens': itens}
+
     return render(request, 'associados.html', context)
 
+
 def dicas(request):
-    try:
-        cat = DicasCategoria.objects.order_by('nome')
-    except DicasCategoria.DoesNotExist:
-        cat = None
-
-    try:
-        itens = Dica.objects.order_by('-dt_hora')
-    except Dica.DoesNotExist:
-        itens = None
-
+    cat = DicasCategoria.objects.order_by('nome')
+    itens = Dica.objects.order_by('-dt_hora')
     context = {'cat': cat,
                'itens': itens}
+
     return render(request, 'dicas.html', context)
 
-def dica(request, id):
-    try:
-        reg = Dica.objects.get(pk = id)
-    except Dica.DoesNotExist:
-        reg = None
 
+def dica(request, id):
+    reg = Dica.objects.get(pk=id)
     context = {'reg': reg}
+
     return render(request, 'dica.html', context)
 
-def noticias(request):
-    try:
-        cat = NoticiasCategoria.objects.order_by('nome')
-    except NoticiasCategoria.DoesNotExist:
-        cat = None
 
-    try:
-        itens = Noticia.objects.order_by('-dt_hora')
-    except Noticia.DoesNotExist:
-        itens = None
+def noticias(request):
+    cat = NoticiasCategoria.objects.order_by('nome')
+    itens = Noticia.objects.order_by('-dt_hora')
 
     context = {'cat': cat,
                'itens': itens}
     return render(request, 'noticias.html', context)
 
-def noticia(request, id):
-    try:
-        reg = Noticia.objects.get(pk = id)
-    except Noticia.DoesNotExist:
-        reg = None
 
+def noticia(request, id):
+    reg = Noticia.objects.get(pk=id)
     context = {'reg': reg}
+
     return render(request, 'noticia.html', context)
 
-def contato(request):
-    try:
-        reg = Contato.objects.latest('id')
-    except Contato.DoesNotExist:
-        reg = None
 
+def contato(request):
+    reg = Contato.objects.latest('id')
     context = {'reg': reg}
+
     return render(request, 'contato.html', context)
 
+
 def contribuir(request):
-    try:
-        reg   = Contribuir.objects.latest('id')
-    except Contribuir.DoesNotExist:
-        reg = None
-
-    try:
-        itens = ContribuirItem.objects.order_by('-id')
-    except ContribuirItem.DoesNotExist:
-        itens = None
-
+    reg = Contribuir.objects.latest('id')
+    itens = ContribuirItem.objects.order_by('-id')
     context = {'reg': reg,
                'itens': itens}
+
     return render(request, 'contribuir.html', context)
