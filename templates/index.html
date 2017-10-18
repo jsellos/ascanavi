@@ -44,7 +44,7 @@
             <div class="content_wrapper clearfix">
                 <div class="sections_group">
                     <div class="entry-content">
-                        <div class="section mcb-section" style="padding-top:120px; padding-bottom:260px; background-color:#ebebeb; background-image:url({% static 'core/images/home_home_sectionbg1.jpg' %}); background-repeat:no-repeat; background-position:center bottom;">
+                        <div class="section mcb-section" style="padding-top:120px; padding-bottom:260px; background-color:#ebebeb; background-image:url({{ reg.principal_imagem.url }}); background-repeat:no-repeat; background-position:center bottom;">
                             <div class="section_wrapper mcb-section-inner">
                                 <div class="wrap mcb-wrap one  valign-top clearfix">
                                     <div class="mcb-wrap-inner">
@@ -82,7 +82,7 @@
                                         <div class="column mcb-column one column_zoom_box ">
                                             <div class="zoom_box">
                                                 <a href="/dicas/{% if reg %}{{ reg.dica1_id_id }}{% endif %}">
-                                                    <div class="photo"><img class="scale-with-grid" src="{% static 'core/images/dia-hora.jpg' %}" alt="Dias e horários de coleta" width="780" height="780" />
+                                                    <div class="photo"><img class="scale-with-grid" src="{{ reg.dica1_imagem.url }}" alt="Dias e horários de coleta" width="780" height="780" />
                                                     </div>
                                                     <div class="desc" style="background-color:rgba(230, 174, 72, 0.8);">
                                                         <!--
@@ -107,7 +107,7 @@
                                         <div class="column mcb-column one column_zoom_box ">
                                             <div class="zoom_box">
                                                 <a href="/dicas/{% if reg %}{{ reg.dica2_id_id }}{% endif %}">
-                                                    <div class="photo"><img class="scale-with-grid" src="{% static 'core/images/reciclaveis.jpg' %}" alt="O que é reciclável" width="780" height="780" />
+                                                    <div class="photo"><img class="scale-with-grid" src="{{ reg.dica2_imagem.url }}" alt="O que é reciclável" width="780" height="780" />
                                                     </div>
                                                     <div class="desc" style="background-color:rgba(230, 174, 72, 0.8);">
                                                         <!--
@@ -132,7 +132,7 @@
                                         <div class="column mcb-column one column_zoom_box ">
                                             <div class="zoom_box">
                                                 <a href="/dicas/{% if reg %}{{ reg.dica3_id_id }}{% endif %}">
-                                                    <div class="photo"><img class="scale-with-grid" src="{% static 'core/images/bairros.jpg' %}" alt="Bairros atendidos" width="780" height="780" />
+                                                    <div class="photo"><img class="scale-with-grid" src="{{ reg.dica3_imagem.url }}" alt="Bairros atendidos" width="780" height="780" />
                                                     </div>
                                                     <div class="desc" style="background-color:rgba(230, 174, 72, 0.8);">
                                                         <!--
@@ -154,7 +154,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="section mcb-section has-video" style="padding-top:240px; padding-bottom:200px; background-color:#393739; background-image:url({% static 'core/images/livro-ascanavi-widget.jpg' %}); background-repeat:no-repeat; background-position:center; background-size:cover">
+                        <div class="section mcb-section has-video" style="padding-top:240px; padding-bottom:200px; background-color:#393739; background-image:url({{ reg.contribuir_imagem.url }}); background-repeat:no-repeat; background-position:center; background-size:cover">
                             <!--
                             <div class="section_video">
                                 <div class="mask"></div>
@@ -195,30 +195,29 @@
                                 </div>
                             </div>
                             <div class="section_wrapper mcb-section-inner">
-                                {% if itens %}
-                                    {% for i in itens %}
-                                        <div class="wrap mcb-wrap one  valign-top clearfix">
-                                            <div class="mcb-wrap-inner">
-                                                <div class="column mcb-column one-second column_image ">
-                                                    <div class="image_frame image_item no_link scale-with-grid aligncenter no_border">
-                                                        <div class="image_wrapper"><img class="scale-with-grid" src="{% static 'core/images/home_home_product1-960x750.jpg' %}" alt="home_home_pic1" width="780" height="609" />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="column mcb-column one-second column_column ">
-                                                    <div class="column_attr clearfix" style=" padding:50px 0 0 10%;">
-                                                        <h3>{{ i.titulo }}</h3>
-                                                        <p class="big">
-                                                            {{ i.texto_destaque }}
-                                                        </p>
-                                                        <hr class="no_line" style="margin: 0 auto 10px;" />
-                                                        <a class="button  button_size_2 button_theme button_js" href="/noticias/{{ i.id }}"><span class="button_label">Leia mais</span></a>
+                                {% for i in itens %}
+                                    <div class="wrap mcb-wrap one  valign-top clearfix">
+                                        <div class="mcb-wrap-inner">
+                                            <div class="column mcb-column one-second column_image ">
+                                                <div class="image_frame image_item no_link scale-with-grid aligncenter no_border">
+                                                    <div class="image_wrapper"><img class="scale-with-grid" src="{{ i.imagem.url }}" alt="home_home_pic1" width="780" height="609" />
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="column mcb-column one-second column_column ">
+                                                <div class="column_attr clearfix" style=" padding:50px 0 0 10%;">
+                                                    <h3>{{ i.titulo }}</h3>
+                                                    <p class="big">
+                                                        {{ i.texto_destaque }}
+                                                    </p>
+                                                    <hr class="no_line" style="margin: 0 auto 10px;" />
+                                                    <a class="button  button_size_2 button_theme button_js" href="/noticias/{{ i.id }}"><span class="button_label">Leia mais</span></a>
+                                                </div>
+                                            </div>
                                         </div>
-                                    {% endfor %}
-                                {% endif %}
+                                    </div>
+                                    {% empty %}
+                                {% endfor %}
                                 <!-- inicio noticia
                                 <div class="wrap mcb-wrap one  valign-top clearfix">
                                     <div class="mcb-wrap-inner">

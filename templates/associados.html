@@ -67,33 +67,30 @@
                         <div class="section mcb-section" style="/*padding-top:140px;*/ padding-bottom:90px;">
                             <div class="section_wrapper mcb-section-inner">
 
-
-                                                                        {% if itens %}
-                                        {% for i in itens %}
-                                                <div class="column one-fourth column_our_team">
-                                                    <div class="team team_list">
-                                                        <div class="image_frame no_link scale-with-grid">
-                                                            <div class="image_wrapper"><img class="scale-with-grid" src="{% static 'core/images/home_design_portfolio_2-576x450.jpg' %}" alt="{{ i.nome }}">
-                                                            </div>
-                                                        </div>
-                                                        <div class="desc_wrapper">
-                                                            <h4>{{ i.nome }}</h4>
-                                                            <hr class="hr_color">
-                                                            <!--
-                                                            <div class="desc">
-                                                                Vitae adipiscing turpis. Aenean ligula nibh, molestie id viverra a, dapibus at dolor.
-                                                            </div>
-                                                            <div class="links">
-                                                                <a href="mailto:noreply@envato.com" class="icon_bar icon_bar_small"><span class="t"><i class="icon-mail"></i></span><span class="b"><i class="icon-mail"></i></span></a><a target="_blank" href="http://facebook.com/" class="icon_bar icon_bar_small"><span class="t"><i class="icon-facebook"></i></span><span class="b"><i class="icon-facebook"></i></span></a><a target="_blank" href="http://twitter.com/" class="icon_bar icon_bar_small"><span class="t"><i class="icon-twitter"></i></span><span class="b"><i class="icon-twitter"></i></span></a><a target="_blank" href="http://www.linkedin.com/" class="icon_bar icon_bar_small"><span class="t"><i class="icon-linkedin"></i></span><span class="b"><i class="icon-linkedin"></i></span></a>
-                                                            </div>
-                                                            -->
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                        {% endfor %}
-                                    {% endif %}
-
-
+                                {% for i in itens %}
+                                    <div class="column one-fourth column_our_team">
+                                        <div class="team team_list">
+                                            <div class="image_frame no_link scale-with-grid">
+                                                <div class="image_wrapper"><img class="scale-with-grid" src="{{ i.imagem.url }}" alt="{{ i.nome }}">
+                                                </div>
+                                            </div>
+                                            <div class="desc_wrapper">
+                                                <h4>{{ i.nome }}</h4>
+                                                <hr class="hr_color">
+                                                <!--
+                                                <div class="desc">
+                                                    Vitae adipiscing turpis. Aenean ligula nibh, molestie id viverra a, dapibus at dolor.
+                                                </div>
+                                                <div class="links">
+                                                    <a href="mailto:noreply@envato.com" class="icon_bar icon_bar_small"><span class="t"><i class="icon-mail"></i></span><span class="b"><i class="icon-mail"></i></span></a><a target="_blank" href="http://facebook.com/" class="icon_bar icon_bar_small"><span class="t"><i class="icon-facebook"></i></span><span class="b"><i class="icon-facebook"></i></span></a><a target="_blank" href="http://twitter.com/" class="icon_bar icon_bar_small"><span class="t"><i class="icon-twitter"></i></span><span class="b"><i class="icon-twitter"></i></span></a><a target="_blank" href="http://www.linkedin.com/" class="icon_bar icon_bar_small"><span class="t"><i class="icon-linkedin"></i></span><span class="b"><i class="icon-linkedin"></i></span></a>
+                                                </div>
+                                                -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% empty %}
+                                    <h1>Nenhum registro encontrado...</h1>
+                                {% endfor %}
                             </div>
                         </div>
 
