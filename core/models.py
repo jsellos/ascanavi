@@ -124,7 +124,7 @@ class Contato(models.Model):
     email            = models.EmailField()
     id_dica_coleta   = models.ForeignKey('Dica', verbose_name='Dias e horários de coleta')
     facebook         = models.URLField()
-
+    instagram        = models.URLField()
     def __str__(self):
         return self.email
 

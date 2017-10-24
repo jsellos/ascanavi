@@ -23,9 +23,11 @@
                                         <br> (33)3275-6435
                                     </p>
                                     <hr class="no_line" style="margin: 0 auto 10px;" />
+                                    {% if contato %}
                                     <p style="font-size: 18px; line-height: 18px; letter-spacing: 10px;">
-                                        <a style="color: #b5b5b5;" href="https://www.facebook.com/pg/ascanavigv" target="_blank"><i class="icon-facebook"></i></a><!--<a style="color: #b5b5b5;" href="https://www.facebook.com/pg/ascanavigv" target="_blank"><i class="icon-twitter"></i></a><a style="color: #b5b5b5;" href="#"><i class="icon-vimeo"></i></a>-->
+                                        <a style="color: #b5b5b5;" href="{{ contato.facebook }}" target="_blank"><i class="icon-facebook"></i></a><!--<a style="color: #b5b5b5;" href="https://www.facebook.com/pg/ascanavigv" target="_blank"><i class="icon-twitter"></i></a><a style="color: #b5b5b5;" href="#"><i class="icon-vimeo"></i></a>-->
                                     </p>
+                                    {% endif %}
                                 </div>
                             </div>
                         </aside>
@@ -36,15 +38,12 @@
                                     <h5>Links úteis</h5>
                                     <hr class="no_line" style="margin: 0 auto 5px;" />
                                     <ul style="font-weight: 700;">
-                                    <li style="margin-bottom: 15px;">
-                                        <span style="color: #e6ae48; margin-right: 10px;">&rarr;</span><a href="http://mncr.org.br/" target="_blank">Movimento Nacional dos Catadores de Materiais Recicláveis</a>
-                                    </li>
-                                    <li style="margin-bottom: 15px;">
-                                        <span style="color: #e6ae48; margin-right: 10px;">&rarr;</span><a href="#">Outro link útil</a>
-                                    </li>
-                                    <li style="margin-bottom: 15px;">
-                                        <span style="color: #e6ae48; margin-right: 10px;">&rarr;</span><a href="#">Conferência Mundial de algo</a>
-                                    </li>
+                                        {% for l in links %}
+                                            <li style="margin-bottom: 15px;">
+                                                <span style="color: #e6ae48; margin-right: 10px;">&rarr;</span><a href="{{ l.link }}" target="_blank">{{ l.descricao }}</a>
+                                            </li>
+                                            {% empty %}
+                                        {% endfor %}
                                 </ul>
                             </div>
                         </aside>
