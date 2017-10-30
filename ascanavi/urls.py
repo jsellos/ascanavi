@@ -18,10 +18,13 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.conf import settings
 
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'', include('core.urls')),
 ]
+
+admin.site.site_title, admin.site.site_header = 'Ascanavi', 'Ascanavi'
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
